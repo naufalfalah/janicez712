@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>uravaluationdatas</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <header style="background: url(banner-home.jpg) no-repeat; background-position: center; background-size: cover;">
+        <div class="hero">
+            <div class="hero-wrapper">
+                <h1>Find Out How Much Your HDB Is Worth Today</h1>
+                <p>
+                    <strong> daily using real URA transaction data.</strong>
+                </p>
+                <p>
+                    Curious about your HDB’s market value if you were to sell it now?
+Use our free calculator to get a reliable estimate.
+                </p>
+                <div class="check-list-main">
+                    <h4>What You’ll Get:</h4>
+                    <div class="icon-list">
+                        <div class="icon-list-item">
+                            <img src="check.png">
+                            <div class="icon-list-content">Estimated Home Valuation Report</div>
+                        </div>
+                        <div class="icon-list-item">
+                            <img src="check.png">
+                            <div class="icon-list-content"> Recent Rental Transactions in your area</div>
+                        </div>
+                        <div class="icon-list-item">
+                            <img src="check.png">
+                            <div class="icon-list-content"> Past Resale Prices within your block and estate</div>
+                        </div>
+                        <div class="icon-list-item">
+                            <img src="check.png">
+                            <div class="icon-list-content">  100% Free to Use</div>
+                        </div>
+                    </div>
+                    <p>Powered by authentic URA data.</p>
+                </div>
+                <div class="button-wrapper">
+                    <a href="/registration/">Calculate Your Home Value Now</a>
+                    <!-- <a href="/registration/?form=condo">CONDO</a> -->
+                </div>
+            </div>
+        </div>
+        <div class="floating-icons">
+            <a href="https://www.facebook.com/Nestnook.News/">
+                <button title="Facebook">
+                    <span class="icon-label">Facebook</span>
+                    <i class="fab fa-facebook-f"></i>
+                </button>
+            </a>
+
+            <a href="https://www.instagram.com/nestnook.news/">
+                <button title="Facebook">
+                    <span class="icon-label">Instagram</span>
+                    <i class="fa-brands fa-instagram"></i>
+                </button>
+            </a>
+
+            <a href="/accordions/">
+                <button title="Twitter">
+                    <span class="icon-label">FAQ's</span>
+                <i class="fa-solid fa-circle-question"></i>
+                </button>
+            </a>
+            <!-- <button title="Instagram">
+                <span class="icon-label">Instagram</span>
+                <i class="fab fa-instagram"></i>
+            </button>
+            <button title="LinkedIn">
+                <span class="icon-label">LinkedIn</span>
+                <i class="fab fa-linkedin-in"></i>
+            </button> -->
+        </div>
+    </header>
+
+    <div id="popup-container">
+    <div class="popup" style="opacity: 1;">
+        <div class="user-icon">
+            <img src="https://i.ibb.co/GfXy149N/pixelcut-export.png" alt="User Icon">
+        </div>
+        <div class="popup-content">Muhammad Faris Bin Zulkifli<br> just submitted recently</div>
+    </div>
+</div>
+<script>
+    const names = [
+        "Emily Tan Wei Ling",
+        "Brandon Ng Jia Hao",
+        "Siti Nur Aisyah Binti Ahmad",
+        "Darren Lim Xin Rui",
+        "Nurul Izzati Binti Hassan",
+        "Rachel Wong Yi Xuan",
+        "Muhammad Faris Bin Zulkifli",
+        "Sophia Lee Mei Zhen",
+        "Hafiz Rahman Bin Ismail",
+        "Chloe Cheng Yu Xuan"
+    ];
+
+    let currentIndex = 0;
+
+    function showPopup() {
+        const popupContent = document.querySelector('.popup-content');
+        const name = names[currentIndex];
+        // Only show the name with 'submitted recently' text
+        popupContent.innerHTML = `${name}<br> just submitted recently`;
+
+        // Show the popup
+        const popup = document.querySelector('.popup');
+        popup.style.opacity = '1';
+
+        // Hide the popup after 5 seconds
+        setTimeout(() => {
+            popup.style.opacity = '0';
+            currentIndex = (currentIndex + 1) % names.length; // Move to the next name
+        }, 5000);
+    }
+
+    // Start showing popups every 10 seconds
+    setInterval(showPopup, 10000); // Every 10 seconds (5 seconds display + 5 seconds wait)
+
+    // Initial call to show the first popup immediately
+    showPopup();
+</script>
+</body>
+
+</html>
