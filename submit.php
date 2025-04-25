@@ -108,9 +108,9 @@ try {
     }
     
     if ($formType === 'condo') {
-        header("Location: ./result/condo.php?lead_id=$leadId&unit=".urlencode($unit)."&full_address=".urlencode($fullAddress)."&project=".urlencode($project)."&block=".urlencode($block)."&floor=".urlencode($floor)."&unit=".urlencode($unitVal));
+        header("Location: ./result/condo.php?lead_id=$leadId&unit=".urlencode($unit)."&full_address=".urlencode($fullAddress)."&project=".urlencode($project)."&block=".urlencode($block)."&floor=".urlencode($floor)."&unit_val=".urlencode($unitVal));
     } elseif ($formType === 'hdb') {
-        header("Location: ./result/hdb.php?lead_id=$leadId&unit=".urlencode($unit)."&full_address=".urlencode($fullAddress)."&town=".urlencode($town)."&block=".urlencode($block)."&flat_type=".urlencode($flatType)."&street=".urlencode($street)."&floor=".urlencode($floor)."&unit=".urlencode($unitVal));
+        header("Location: ./result/hdb.php?lead_id=$leadId&unit=".urlencode($unit)."&full_address=".urlencode($fullAddress)."&town=".urlencode($town)."&block=".urlencode($block)."&flat_type=".urlencode($flatType)."&street=".urlencode($street)."&floor=".urlencode($floor)."&unit_val=".urlencode($unitVal));
     }
     exit();
 } catch (PDOException $e) {
