@@ -28,6 +28,7 @@ if ($result['total'] != 0) {
 }
 
 $data = $_POST;
+// die($data);
 
 $leadFields = ["form_type", "source_url", "ip", "name", "ph_number", "email"];
 $leadData = array_intersect_key($data, array_flip($leadFields));
@@ -94,8 +95,6 @@ try {
     $flatType = $_POST['flat_type'] ?? '';
     $town = $_POST['town'] ?? '';
     $street = $_POST['street'] ?? '';
-    $sqft = $_POST['sqft'] ?? '';
-    $plan = $_POST['plan'] ?? '';
 
     $fullAddress = '';
     $unit = '';
@@ -106,17 +105,12 @@ try {
     } elseif ($formType === 'hdb') {
         $fullAddress = "$town, $street, Blk $block, Floor $floor - Unit $unitVal, HDB Flat Type: $flatType";
         $unit = "Floor $floor - Unit $unitVal";
-    } elseif ($formType === 'landed') {
-        $fullAddress = "$street, SQFT: $sqft";
-        $unit = "$sqft SQFT";
     }
     
     if ($formType === 'condo') {
-        header("Location: ./condo/report.php?lead_id=$leadId&unit=".urlencode($unit)."&full_address=".urlencode($fullAddress)."&project=".urlencode($project)."&block=".urlencode($block)."&unit=".urlencode($unit));
+        header("Location: ./result/condo.php?lead_id=$leadId&unit=".urlencode($unit)."&full_address=".urlencode($fullAddress)."&project=".urlencode($project)."&block=".urlencode($block)."&floor=".urlencode($floor)."&unit=".urlencode($unitVal));
     } elseif ($formType === 'hdb') {
-        header("Location: ./hdb/report.php?lead_id=$leadId&unit=".urlencode($unit)."&full_address=".urlencode($fullAddress)."&town=".urlencode($town)."&flat_type=".urlencode($flatType)."&block=".urlencode($block));
-    } elseif ($formType === 'landed') {
-        header("Location: ./landed/report.php?lead_id=$leadId&unit=".urlencode($unit)."&full_address=".urlencode($fullAddress)."&street=".urlencode($street)."&plan=".urlencode($plan)."&sqft=".urlencode($sqft));
+        header("Location: ./result/hdb.php?lead_id=$leadId&unit=".urlencode($unit)."&full_address=".urlencode($fullAddress)."&town=".urlencode($town)."&block=".urlencode($block)."&flat_type=".urlencode($flatType)."&street=".urlencode($street)."&floor=".urlencode($floor)."&unit=".urlencode($unitVal));
     }
     exit();
 } catch (PDOException $e) {

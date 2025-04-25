@@ -4,6 +4,18 @@ const params = new URLSearchParams(window.location.search);
 const form = params.get('form') ?? 'hdb';
 console.log('form', form)
 
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("https://www.cloudflare.com/cdn-cgi/trace")
+    .then(res => res.text())
+    .then(text => {
+        const ip = text.match(/ip=(.*)/)[1].trim();
+        document.querySelectorAll('input[name="ip"]').forEach(el => {
+        el.value = ip;
+        });
+    })
+    .catch(err => console.error("IP fetch error:", err));
+});
+
 $(document).ready(function () {
     // Initial load
     if (form === 'condo') {
@@ -91,16 +103,60 @@ $(document).ready(function () {
                 })
                 .catch(error => console.error("Error loading blocks:", error));
         });
+    } else if (form == 'contact') {
+        const formProperty = document.getElementById('form-property');
+
+        params.forEach((value, key) => {
+            if (key == 'form') {
+                return;
+            }
+
+            const hiddenInput = document.createElement("input");
+            hiddenInput.type = "hidden";
+            hiddenInput.name = key;
+            hiddenInput.value = value;
+
+            formProperty.appendChild(hiddenInput);
+        })
     }
 
     $('.button-next').on('click', function () {
+        console.log('next'. form)
         submitted = true;
         if (!validateStep()) {
             return;
         }
 
-        $('.active-form').removeClass('active-form');
-        $('#form-contact').addClass('active-form');
+        let url = "?form=contact";
+        url += `&form_type=${encodeURIComponent(form)}`
+        if (form === 'condo') {
+            const project = $('select[name="project"]').val();
+            const block = $('#condo-block').val();
+            const sell = $('#condo-sell').val();
+            const floor = $('#condo-floor').val();
+            const unit = $('#condo-unit').val();
+            url += `&project=${encodeURIComponent(project)}`
+            url += `&block=${encodeURIComponent(block)}`
+            url += `&sell=${encodeURIComponent(sell)}`
+            url += `&floor=${encodeURIComponent(floor)}`
+            url += `&unit=${encodeURIComponent(unit)}`
+        } else if (form === 'hdb') {
+            const town = $('select[name="town"]').val();
+            const street = $('select[name="street"]').val();
+            const block = $('#hdb-block').val();
+            const flat_type = $('select[name="flat_type"]').val();
+            const sell = $('#hdb-sell').val();
+            const floor = $('#hdb-floor').val();
+            const unit = $('#hdb-unit').val();
+            url += `&town=${encodeURIComponent(town)}`
+            url += `&street=${encodeURIComponent(street)}`
+            url += `&block=${encodeURIComponent(block)}`
+            url += `&flat_type=${encodeURIComponent(flat_type)}`
+            url += `&sell=${encodeURIComponent(sell)}`
+            url += `&floor=${encodeURIComponent(floor)}`
+            url += `&unit=${encodeURIComponent(unit)}`
+        }
+        window.location.href = url;
     });
 
     $('input[name="name"], input[name="ph_number"], input[name="email"]').on('input', function () {
@@ -124,18 +180,14 @@ $(document).ready(function () {
     $('#submit-form').on('submit', function (event) {
         event.preventDefault();
 
+        console.log("submit")
+
         // Validate form fields
         if (!formValidation()) {
             return;
         }
 
-        const formData = $(this).serialize();
-        console.log("formData", formData);
-
-        // $('#loading-indicator').show();
-        // $('.btn-submit').prop('disabled', true);
-
-        // this.submit();
+        this.submit();
     });
 });
 
@@ -194,7 +246,7 @@ function validateStep() {
             isValid = false;
         }
 
-        const block = $('hdb-block').val();
+        const block = $('#hdb-block').val();
         if (!block) {
             $('.block-error').text('Please select block');
             isValid = false;
@@ -212,7 +264,7 @@ function validateStep() {
             isValid = false;
         }
 
-        const floor = $('hdb-floor').val();
+        const floor = $('#hdb-floor').val();
         if (!floor) {
             $('.floor-error').text('Please enter floor');
             isValid = false;
@@ -237,6 +289,7 @@ function validateStep() {
 }
 
 function formValidation() {
+    console.log('form validation')
     let validFields = true;
     $('.error-message').text('');
 
@@ -261,11 +314,11 @@ function formValidation() {
     // Validate phone number
     const phoneNumber = $('input[name="ph_number"]').val();
     if (!phoneNumber) {
-        $('.phone-error').text('Please enter your phone number.');
+        $('.ph_number-error').text('Please enter your phone number.');
         validFields = false;
     }
     if (phoneNumber && !validatePhoneNumber(phoneNumber)) {
-        $('.phone-error').text('Must exactly 8 digits & start with 8 or 9 (valid Singapore mobile numbers)');
+        $('.ph_number-error').text('Must exactly 8 digits & start with 8 or 9 (valid Singapore mobile numbers)');
         validFields = false;
     }
 
@@ -328,42 +381,42 @@ setInterval(showPopup, 10000); // Every 10 seconds (5 seconds display + 5 second
 // Initial call to show the first popup immediately
 showPopup();
 
-
 document.addEventListener("DOMContentLoaded", function () {
     const tabs = document.querySelectorAll(".tab");
     const formSections = {
         hdb: document.getElementById("form-hdb"),
         condo: document.getElementById("form-condo"),
+        contact: document.getElementById("form-contact"),
     };
 
     function showForm(formType) {
+        tabs.forEach((tab) => {
+            if (tab.getAttribute("data-form") === form ) {
+                tab.classList.add("active");
+            } else {
+                tab.classList.remove("active");
+            }
+        });
+
         Object.keys(formSections).forEach((type) => {
             formSections[type].style.display =
                 type === formType ? "block" : "none";
         });
     }
 
-    tabs.forEach((tab) => {
-        tab.addEventListener("click", function () {
-            tabs.forEach((t) => t.classList.remove("active"));
-            this.classList.add("active");
+    // tabs.forEach((tab) => {
+    //     tab.addEventListener("click", function () {
+    //         tabs.forEach((t) => t.classList.remove("active"));
+    //         this.classList.add("active");
 
-            const formType = this.getAttribute("data-form").toLowerCase();
-            const newUrl = `${window.location.pathname}?form=${formType}`;
-            window.history.pushState({ path: newUrl }, "", newUrl);
-            showForm(formType);
-        });
-    });
+    //         const formType = this.getAttribute("data-form").toLowerCase();
+    //         const newUrl = `${window.location.pathname}?form=${formType}`;
+    //         window.history.pushState({ path: newUrl }, "", newUrl);
+    //         showForm(formType);
+    //     });
+    // });
 
-    const params = new URLSearchParams(window.location.search);
-    const initialForm = params.get("form") || "hdb";
-    showForm(initialForm);
-
-    tabs.forEach((tab) => {
-        if (tab.getAttribute("data-form") === initialForm) {
-            tab.classList.add("active");
-        } else {
-            tab.classList.remove("active");
-        }
-    });
+    // const params = new URLSearchParams(window.location.search);
+    // const initialForm = params.get("form") || "hdb";
+    showForm(form);
 });
