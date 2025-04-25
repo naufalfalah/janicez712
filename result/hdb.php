@@ -63,28 +63,28 @@
 
                         <div class="form-group-wrapper mt-5">
                           <div class="form-group">
-                            <input type="text" name="town" class="form-input" value="<?= $_GET['town'] ?? 'N/A'; ?>" readonly>
+                            <input type="text" name="town" class="form-input" value="<?= $_GET['town'] ?? 'N/A'; ?>" disabled>
                           </div>
                           <div class="form-group">
-                            <input type="text" name="street" class="form-input" value="<?= $_GET['street'] ?? 'N/A'; ?>" readonly>
-                          </div>
-                        </div>
-
-                        <div class="form-group-wrapper">
-                          <div class="form-group">
-                            <input type="text" name="block" class="form-input" value="<?= $_GET['block'] ?? 'N/A'; ?>" readonly>
-                          </div>
-                          <div class="form-group">
-                            <input type="text" name="floor" class="form-input" value="<?= $_GET['floor'] ?? 'N/A'; ?>" readonly>
+                            <input type="text" name="street" class="form-input" value="<?= $_GET['street'] ?? 'N/A'; ?>" disabled>
                           </div>
                         </div>
 
                         <div class="form-group-wrapper">
                           <div class="form-group">
-                            <input type="text" name="unit" class="form-input" value="<?= $_GET['unit_val'] ?? 'N/A'; ?>" readonly>
+                            <input type="text" name="block" class="form-input" value="<?= $_GET['block'] ?? 'N/A'; ?>" disabled>
                           </div>
                           <div class="form-group">
-                            <input type="text" name="flat_type" class="form-input" value="<?= $_GET['flat_type'] ?? 'N/A'; ?>" readonly>
+                            <input type="text" name="floor" class="form-input" value="<?= $_GET['floor'] ?? 'N/A'; ?>" disabled>
+                          </div>
+                        </div>
+
+                        <div class="form-group-wrapper">
+                          <div class="form-group">
+                            <input type="text" name="unit" class="form-input" value="<?= $_GET['unit_val'] ?? 'N/A'; ?>" disabled>
+                          </div>
+                          <div class="form-group">
+                            <input type="text" name="flat_type" class="form-input" value="<?= $_GET['flat_type'] ?? 'N/A'; ?>" disabled>
                           </div>
                         </div>
 

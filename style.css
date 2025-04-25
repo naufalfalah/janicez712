@@ -503,6 +503,11 @@ select {
     padding: 30px;
     margin: 30px;
   }
+          
+  .input-row {
+      display: block;
+      gap: 10px;
+  }
 }
 
 /* Mobile Devices */

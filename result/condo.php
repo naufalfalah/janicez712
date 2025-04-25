@@ -63,19 +63,19 @@
 
                         <div class="form-group-wrapper mt-5">
                           <div class="form-group">
-                            <input type="text" name="project" class="form-input" value="<?= $_GET['project'] ?? 'N/A'; ?>" readonly>
+                            <input type="text" name="project" class="form-input" value="<?= $_GET['project'] ?? 'N/A'; ?>" disabled>
                           </div>
                           <div class="form-group">
-                            <input type="text" name="block" class="form-input" value="<?= $_GET['block'] ?? 'N/A'; ?>" readonly>
+                            <input type="text" name="block" class="form-input" value="<?= $_GET['block'] ?? 'N/A'; ?>" disabled>
                           </div>
                         </div>
 
                         <div class="form-group-wrapper">
                           <div class="form-group">
-                            <input type="text" name="floor" class="form-input" value="<?= $_GET['floor'] ?? 'N/A'; ?>" readonly>
+                            <input type="text" name="floor" class="form-input" value="<?= $_GET['floor'] ?? 'N/A'; ?>" disabled>
                           </div>
                           <div class="form-group">
-                            <input type="text" name="unit" class="form-input" value="<?= $_GET['unit_val'] ?? 'N/A'; ?>" readonly>
+                            <input type="text" name="unit" class="form-input" value="<?= $_GET['unit_val'] ?? 'N/A'; ?>" disabled>
                           </div>
                         </div>
 

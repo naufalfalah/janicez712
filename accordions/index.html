@@ -317,7 +317,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-
             const triggers = document.querySelectorAll('.accoridon-triggerd');
             const contents = document.querySelectorAll('.accoriodn-content');
             const icons = document.querySelectorAll('.accoridon-icon img');
@@ -333,6 +332,19 @@
 
             triggers.forEach((trigger, index) => {
                 trigger.addEventListener('click', function () {
+                    const isActive = this.classList.contains('active');
+                    if (isActive) {
+                        // Agar active hai to band karo
+                        this.classList.remove('active');
+                        const content = this.nextElementSibling;
+                        const icon = this.querySelector('.accoridon-icon img');
+                        const parentItem = this.closest('.accordion-item');
+
+                        content.style.height = '0px';
+                        icon.classList.remove('rotated');
+                        parentItem.classList.remove('active-bg');
+                        return;
+                    }
 
                     // Sub ko band karo
                     triggers.forEach(t => t.classList.remove('active'));
