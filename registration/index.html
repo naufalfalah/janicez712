@@ -57,20 +57,23 @@
     <div id="form-hdb" class="form-section">
       <input type="hidden" name="form_type" value="hdb">
 
-      <label for="town">Where is your HDB located? *</label>
-      <div class="custom-select-wrapper">
-        <select id="town" name="town" required>
-        </select>
-        <p class="error-message town-error"></p>
+      <div style="margin-bottom: 8px;">
+        <label for="town">Where is your HDB located? *</label>
+        <div class="custom-select-wrapper">
+          <select id="town" name="town" required>
+          </select>
+          <p class="error-message town-error"></p>
+        </div>
       </div>
 
-      <div class="form-field-wrapper" style="display: flex; gap: 10px">
+      <div class="form-field-wrapper" style="display: flex; gap: 10px; margin-bottom: 8px;">
         <div class="flex-wrapper">
           <label for="street">What is your Street Name?</label>
           <select id="street" name="street" required>
           </select>
           <p class="error-message street-error"></p>
         </div>
+
         <div class="flex-wrapper">
           <label for="block">Block No (BLK)? *</label>
           <select id="hdb-block" name="block" required>
@@ -78,6 +81,7 @@
           <p class="error-message block-error"></p>
         </div>
       </div>
+
       <div class="form-field-wrapper" style="display: flex; gap: 10px">
         <div class="flex-wrapper">
           <label for="flat_type">HDB Flat Type? *</label>
@@ -94,6 +98,7 @@
           </div>
           <p class="error-message flat_type-error"></p>
         </div>
+
         <div class="flex-wrapper">
           <label for="sell">Are you looking to sell your property? *</label>
           <div class="custom-select-wrapper">
@@ -112,11 +117,12 @@
       <label for="unit-number">What is your unit number? *</label>
       <div class="form-field-wrapper" style="display: flex; gap: 10px">
         <div style="flex: 1">
-          <input type="text" id="hdb-floor" name="floor" placeholder="Floor" required maxlength="2" />
+          <input type="text" id="hdb-floor" name="floor" placeholder="Floor" required maxlength="2" style="width: 100%;" />
           <p class="error-message floor-error"></p>
         </div>
+        
         <div style="flex: 1">
-          <input type="text" id="hdb-unit" name="unit" placeholder="Unit" required maxlength="4" />
+          <input type="text" id="hdb-unit" name="unit" placeholder="Unit" required maxlength="4" style="width: 100%;" />
           <p class="error-message unit-error"></p>
         </div>
       </div>
@@ -136,14 +142,18 @@
     <div id="form-condo" class="form-section">
       <input type="hidden" name="form_type" value="condo">
 
-      <label for="project">Project Name *</label>
-      <select id="project" name="project" required>
-      </select>
-      <p class="error-message project-error"></p>
+      <div style="margin-bottom: 8px;">
+        <label for="project">Project Name *</label>
+        <select id="project" name="project" required>
+        </select>
+        <p class="error-message project-error"></p>
+      </div>
 
-      <label for="block">Block No (BLK)? *</label>
-      <input type="text" id="condo-block" name="block" placeholder="Block Number" maxlength="15" required />
-      <p class="error-message block-error"></p>
+      <div style="margin-bottom: 8px;">
+        <label for="block" style="width: 100%;">Block No (BLK)? *</label>
+        <input type="text" id="condo-block" name="block" placeholder="Block Number" maxlength="15" required style="width: 100%;" />
+        <!-- <p class="error-message block-error"></p> -->
+      </div>
 
       <label for="sell">When do you plan to sell your property? *</label>
       <select id="condo-sell" name="sell" required>
@@ -158,11 +168,11 @@
       <label for="unit-number">What is your unit number? *</label>
       <div class="form-field-wrapper" style="display: flex; gap: 10px">
         <div style="flex: 1;">
-          <input type="text" id="condo-floor" name="floor" placeholder="Floor" required maxlength="2" />
+          <input type="text" id="condo-floor" name="floor" placeholder="Floor" required maxlength="2" style="width: 100%;" />
           <p class="error-message floor-error"></p>
         </div>
         <div style="flex: 1;">
-          <input type="text" id="condo-unit" name="unit" placeholder="Unit" required maxlength="4" />
+            <input type="text" id="condo-unit" name="unit" placeholder="Unit" required maxlength="4" style="width: 100%;" />
           <p class="error-message unit-error"></p>
         </div>
       </div>
