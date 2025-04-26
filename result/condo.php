@@ -190,11 +190,15 @@ $flat_type = $response['lead_details'][2]['lead_form_value'];
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
   <script>
     $(document).ready(function() {
+      let project = $('#project').val();
+    
       $('.dataTables_filter label input').attr('placeholder', ' ⌕ search here');
       $('.basic').select2();
 
       // Initial table load
-      load_data({});
+      load_data({
+        project
+      });
 
       $('#search-field').on('keyup', function() {
         reloadTable();

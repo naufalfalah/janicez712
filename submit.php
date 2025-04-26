@@ -114,6 +114,7 @@ try {
     }
     exit();
 } catch (PDOException $e) {
+    $pdo->rollBack();
     header("Location: ./");
     exit();
 }
