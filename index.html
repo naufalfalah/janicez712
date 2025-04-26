@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>uravaluationdatas</title>
+    <title>Property Valuation Calculator</title>
     <link rel="stylesheet" type="text/css" href="style.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
@@ -19,7 +19,7 @@
                 </p>
                 <p>
                     Curious about your HDB’s market value if you were to sell it now?
-Use our free calculator to get a reliable estimate.
+                    Use our free calculator to get a reliable estimate.
                 </p>
                 <div class="check-list-main">
                     <h4>What You’ll Get:</h4>
@@ -38,7 +38,7 @@ Use our free calculator to get a reliable estimate.
                         </div>
                         <div class="icon-list-item">
                             <img src="check.png">
-                            <div class="icon-list-content">  100% Free to Use</div>
+                            <div class="icon-list-content"> 100% Free to Use</div>
                         </div>
                     </div>
                     <p>Powered by authentic URA data.</p>
@@ -67,7 +67,7 @@ Use our free calculator to get a reliable estimate.
             <a href="./accordions/">
                 <button title="Twitter">
                     <span class="icon-label">FAQ's</span>
-                <i class="fa-solid fa-circle-question"></i>
+                    <i class="fa-solid fa-circle-question"></i>
                 </button>
             </a>
             <!-- <button title="Instagram">
@@ -82,52 +82,52 @@ Use our free calculator to get a reliable estimate.
     </header>
 
     <div id="popup-container">
-    <div class="popup" style="opacity: 1;">
-        <div class="user-icon">
-            <img src="https://i.ibb.co/GfXy149N/pixelcut-export.png" alt="User Icon">
+        <div class="popup" style="opacity: 1;">
+            <div class="user-icon">
+                <img src="https://i.ibb.co/GfXy149N/pixelcut-export.png" alt="User Icon">
+            </div>
+            <div class="popup-content">Muhammad Faris Bin Zulkifli<br> just submitted recently</div>
         </div>
-        <div class="popup-content">Muhammad Faris Bin Zulkifli<br> just submitted recently</div>
     </div>
-</div>
-<script>
-    const names = [
-        "Emily Tan Wei Ling",
-        "Brandon Ng Jia Hao",
-        "Siti Nur Aisyah Binti Ahmad",
-        "Darren Lim Xin Rui",
-        "Nurul Izzati Binti Hassan",
-        "Rachel Wong Yi Xuan",
-        "Muhammad Faris Bin Zulkifli",
-        "Sophia Lee Mei Zhen",
-        "Hafiz Rahman Bin Ismail",
-        "Chloe Cheng Yu Xuan"
-    ];
+    <script>
+        const names = [
+            "Emily Tan Wei Ling",
+            "Brandon Ng Jia Hao",
+            "Siti Nur Aisyah Binti Ahmad",
+            "Darren Lim Xin Rui",
+            "Nurul Izzati Binti Hassan",
+            "Rachel Wong Yi Xuan",
+            "Muhammad Faris Bin Zulkifli",
+            "Sophia Lee Mei Zhen",
+            "Hafiz Rahman Bin Ismail",
+            "Chloe Cheng Yu Xuan"
+        ];
 
-    let currentIndex = 0;
+        let currentIndex = 0;
 
-    function showPopup() {
-        const popupContent = document.querySelector('.popup-content');
-        const name = names[currentIndex];
-        // Only show the name with 'submitted recently' text
-        popupContent.innerHTML = `${name}<br> just submitted recently`;
+        function showPopup() {
+            const popupContent = document.querySelector('.popup-content');
+            const name = names[currentIndex];
+            // Only show the name with 'submitted recently' text
+            popupContent.innerHTML = `${name}<br> just submitted recently`;
 
-        // Show the popup
-        const popup = document.querySelector('.popup');
-        popup.style.opacity = '1';
+            // Show the popup
+            const popup = document.querySelector('.popup');
+            popup.style.opacity = '1';
 
-        // Hide the popup after 5 seconds
-        setTimeout(() => {
-            popup.style.opacity = '0';
-            currentIndex = (currentIndex + 1) % names.length; // Move to the next name
-        }, 5000);
-    }
+            // Hide the popup after 5 seconds
+            setTimeout(() => {
+                popup.style.opacity = '0';
+                currentIndex = (currentIndex + 1) % names.length; // Move to the next name
+            }, 5000);
+        }
 
-    // Start showing popups every 10 seconds
-    setInterval(showPopup, 10000); // Every 10 seconds (5 seconds display + 5 seconds wait)
+        // Start showing popups every 10 seconds
+        setInterval(showPopup, 10000); // Every 10 seconds (5 seconds display + 5 seconds wait)
 
-    // Initial call to show the first popup immediately
-    showPopup();
-</script>
+        // Initial call to show the first popup immediately
+        showPopup();
+    </script>
 </body>
 
 </html>
