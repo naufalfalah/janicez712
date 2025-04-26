@@ -596,17 +596,12 @@ select {
     height: 30px;
 }
 
+/* error message */
 .error-message {
     color: red !important;
 }
 
-@media (max-width: 768px) {
-    .select2-dropdown {
-        width: 100% !important;
-    }
-}
-
-/* change checkbox color */
+/* checkbox */
 input[type="checkbox"] {
     appearance: none;
     width: 20px;
@@ -636,13 +631,10 @@ input[type="checkbox"]:checked::after {
     border-radius: 2px;
 }
 
+/* select2 */
 .select2-container {
     width: 100% !important;
 }
-/* 
-.selection {
-    height: 42px !important;
-} */
 
 .select2-selection {
     height: 42px !important;
