@@ -106,7 +106,6 @@ h1.heading-style-h1 {
 
 .accordion-item.active-bg {
     background: #00937b3d;
-    /* Yeh color aap apni marzi ka rakh sakte ho */
     transition: background 0.4s ease;
 }
 
