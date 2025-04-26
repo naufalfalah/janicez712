@@ -24,6 +24,8 @@
 body {
   background: var(--background-color);
   color: var(--text-color);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
 header {
@@ -253,19 +255,21 @@ nav a.active {
   font-size: 14px;
 }
 
-.floating-icons button:hover .icon-label {
-  opacity: 1;
-}
+@media (min-width: 768px) {
+  .floating-icons button:hover .icon-label {
+    opacity: 1;
+  }
 
-.icon-label::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: -10px;
-  transform: translateY(-50%);
-  border-width: 6px;
-  border-style: solid;
-  border-color: transparent transparent transparent var(--white);
+  .icon-label::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -10px;
+    transform: translateY(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent transparent var(--white);
+  }
 }
 
 .container {
@@ -463,6 +467,7 @@ select {
   width: 100%;
   padding: 12px !important;
   background-color: white;
+  background-size: cover;
   background-image: url("https://i.ibb.co/39rnR4rr/down-1.png");
   background-repeat: no-repeat;
   background-position: right 12px center;
@@ -618,13 +623,11 @@ select {
 
   header {
     padding: 20px 0px;
-    height: 100%;
   }
 
   .hero h1 {
     font-size: 24px !important;
   }
-
 }
 
 /* popup */
