@@ -49,9 +49,10 @@
   <div class="container">
     <div class="tabs">
       <div class="d-tabs-flex">
-        <a href="?form=hdb" class="tab active" id="tab-hdb" data-form="hdb">HDB</a>
-        <a href="?form=condo" class="tab" id="tab-condo" data-form="condo">CONDO</a>
+        <button type="button" class="tab active" id="tab-hdb" data-form="hdb">HDB</button>
+        <button type="button" class="tab" id="tab-condo" data-form="condo">CONDO</button>
       </div>
+      <p class="error-message tab-error"></p>
     </div>
 
     <div id="form-hdb" class="form-section">
@@ -117,10 +118,11 @@
       <div class="form-field-wrapper" style="display: flex; gap: 10px">
         <div style="flex: 1">
           <label for="floor-number">What is your floor number? *</label>
-          <input type="text" id="hdb-floor" name="floor" placeholder="Floor" required maxlength="2" style="width: 100%;" />
+          <input type="text" id="hdb-floor" name="floor" placeholder="Floor" required maxlength="2"
+            style="width: 100%;" />
           <p class="error-message floor-error"></p>
         </div>
-        
+
         <div style="flex: 1">
           <label for="unit-number">What is your unit number? *</label>
           <input type="text" id="hdb-unit" name="unit" placeholder="Unit" required maxlength="4" style="width: 100%;" />
@@ -152,7 +154,8 @@
 
       <div style="margin-bottom: 8px;">
         <label for="block" style="width: 100%;">Block No (BLK)? *</label>
-        <input type="text" id="condo-block" name="block" placeholder="Block Number" maxlength="15" required style="width: 100%;" />
+        <input type="text" id="condo-block" name="block" placeholder="Block Number" maxlength="15" required
+          style="width: 100%;" />
         <p class="error-message block-error"></p>
       </div>
 
@@ -169,12 +172,14 @@
       <div class="form-field-wrapper" style="display: flex; gap: 10px">
         <div style="flex: 1;">
           <label for="floor-number">What is your floor number? *</label>
-          <input type="text" id="condo-floor" name="floor" placeholder="Floor" required maxlength="2" style="width: 100%;" />
+          <input type="text" id="condo-floor" name="floor" placeholder="Floor" required maxlength="2"
+            style="width: 100%;" />
           <p class="error-message floor-error"></p>
         </div>
         <div style="flex: 1;">
           <label for="unit-number">What is your unit number? *</label>
-            <input type="text" id="condo-unit" name="unit" placeholder="Unit" required maxlength="4" style="width: 100%;" />
+          <input type="text" id="condo-unit" name="unit" placeholder="Unit" required maxlength="4"
+            style="width: 100%;" />
           <p class="error-message unit-error"></p>
         </div>
       </div>
